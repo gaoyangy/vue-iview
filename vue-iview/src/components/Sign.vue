@@ -312,7 +312,8 @@ export default {
                 self.$http.jsonp('http://www.pm25.in/api/querys/pm10.json?city=%E4%B8%8A%E6%B5%B7&token=5j1znBVAsnSf5xQyNQyq&avg').then((response) =>{
                   console.log(response.data);
                   self.uls=response.data
-                
+                    
+                    console.log($('.sign'))
                   console.log(this.$route.params.id)
                 }).catch(e =>{
                   console.log('error'+e);

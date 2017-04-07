@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-#模拟数据库启动
+#模拟数据库启动 localhost:3000
 npm run mockdev
 
 # serve with hot reload at localhost:8080

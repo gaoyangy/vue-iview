@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "mock": "json-server --watch mock/faker-data.js",
+    "mockdev": "npm run mock && node build/dev-server.js",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -13,6 +15,7 @@
   },
   "dependencies": {
     "vue": "^2.2.2",
+    "json-server" :"0.9.6",
     "vue-resource": "^0.7.0",
     "vue-validator": "^3.0.0-alpha.2",
     "vue-router": "^2.2.0",

@@ -320,7 +320,7 @@ export default {
             },
             success () {
                 this.$Message.success('这是一条成功的提示');
-        
+                    
                     if(this.step==3){
                           this.$Modal.confirm({
                             title: '确认对话框标题',
@@ -340,7 +340,19 @@ export default {
             
             },
             warning () {
+                const self = this;
                 this.$Message.warning('这是一条警告的提示');
+                self.$http.get('/api/address').then((response) =>{
+                  
+                  self.uls=response.data;
+                    
+                  console.log(this.$router)
+                   this.$router.push({path:'/'})
+                   next({path:'/login'})
+                  console.log(this.$router)
+                }).catch(e =>{
+                  console.log('error'+e);
+                })
             },
             error () {
                 this.$Message.error('对方不想说话，并且向你抛出了一个异常');

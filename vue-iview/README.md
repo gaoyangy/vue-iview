@@ -8,27 +8,14 @@
 # install dependencies
 npm install
 
+#模拟数据库启动
+npm run mockdev
+
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
+#git
 git add --all
 git commit -m ''
 git push
@@ -40,4 +27,7 @@ git add --all
 git commit -m ''
 git push
 
+
+#接口
+所有api接口默认以/api开头
 

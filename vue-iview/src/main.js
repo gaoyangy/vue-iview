@@ -2,7 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueValidator from './public/validation.js'
+import Validator from 'vue-validator'
+// import VueValidator from './public/validation.js'
 import router from './router'
 import iview from 'iview'
 import $ from 'jquery'
@@ -14,7 +15,7 @@ Vue.config.productionTip = false
 //
 Vue.use(iview);
 Vue.use(resource);
-Vue.use(VueValidator);
+Vue.use(Validator);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

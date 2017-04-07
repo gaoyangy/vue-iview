@@ -7,14 +7,17 @@ import Validator from 'vue-validator'
 import router from './router'
 import iview from 'iview'
 import $ from 'jquery'
-import resource from 'vue-resource'
+
+// import resource from 'vue-resource'		//不维护被抛弃了
 import 'iview/dist/styles/iview.css';    // 使用 CSS
+import axios from 'axios'					//强大的请求方式
+Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false
 
 //
 Vue.use(iview);
-Vue.use(resource);
+// Vue.use(resource);			//使用vue-resource
 Vue.use(Validator);
 /* eslint-disable no-new */
 new Vue({

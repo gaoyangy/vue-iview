@@ -33,3 +33,11 @@ git add --all
 git commit -m ''
 git push
 
+remove 
+git checkout
+rm -r xxxx
+git add --all
+git commit -m ''
+git push
+
+

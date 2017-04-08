@@ -10,7 +10,7 @@ import $ from 'jquery'
 
 // import resource from 'vue-resource'		//不维护被抛弃了
 import 'iview/dist/styles/iview.css';    // 使用 CSS
-import axios from 'axios'					//强大的请求方式
+import axios from 'axios'					//强大的http请求方式
 Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false

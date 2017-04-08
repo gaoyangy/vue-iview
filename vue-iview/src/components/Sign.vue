@@ -312,7 +312,6 @@ export default {
                 self.$http.jsonp('http://www.pm25.in/api/querys/pm10.json?city=%E4%B8%8A%E6%B5%B7&token=5j1znBVAsnSf5xQyNQyq&avg').then((response) =>{
                   console.log(response.data);
                   self.uls=response.data
-                    
                     console.log($('.sign'))
                   console.log(this.$route.params.id)
                 }).catch(e =>{
@@ -343,7 +342,7 @@ export default {
             warning () {
                 const self = this;
                 this.$Message.warning('这是一条警告的提示');
-                self.$http.get('/api/address').then((response) =>{
+                self.axios.get('/api/address').then((response) =>{
                   
                   self.uls=response.data;
                     

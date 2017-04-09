@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  
+
   name: 'sign',
   data () {
     return {
@@ -304,11 +304,21 @@ export default {
       
     }
   },
+  filters:{             //过滤器
+
+  },
+  created(){
+    console.log(444);
+  },
+  mounted(){            //页面加载后
+      this.info();
+      console.log(1111)
+  },
   methods: {
 
             info () {
                 var self=this;
-                self.$Message.info('这是一条普通的提醒');
+                self.$Message.info('这是一个vue-resource请求');
                 self.$http.jsonp('http://www.pm25.in/api/querys/pm10.json?city=%E4%B8%8A%E6%B5%B7&token=5j1znBVAsnSf5xQyNQyq&avg').then((response) =>{
                   console.log(response.data);
                   self.uls=response.data
@@ -339,10 +349,29 @@ export default {
                     }
             
             },
+            getPeople(){
+                const self=this;
+                self.axios.get('/api/people').then((res) =>{
+                    console.log(res);
+                })
+            },
+            getSchool(){
+                const self=this;
+                self.axios.get('/api/school').then((res) =>{
+                    console.log(res);
+                })
+            },
+            httpAxios(){
+                this.axios.all([getSchool(),getPeople()]).then(axios.spread(function (acct, perms) {
+                        
+                            console.log(acct);
+                            console.log(perms);
+                    }));
+            },
             warning () {
                 const self = this;
-                this.$Message.warning('这是一条警告的提示');
-                self.axios.get('/api/address').then((response) =>{
+                self.$Message.warning('这是一条警告的提示');
+                self.axios.get('/api/people').then((response) =>{
                   
                   self.uls=response.data;
                     
@@ -356,9 +385,21 @@ export default {
             },
             error () {
                 this.$Message.error('对方不想说话，并且向你抛出了一个异常');
+                this.httpAxios();
             },
             loading () {
-                const msg = this.$Message.loading('正在加载中...', 0);
+                const self=this;
+                function getUserAccount() {
+                self.axios.get('/api/people');
+                }
+                function getUserPermissions() {
+                self.axios.get('/api/school');
+                }
+                 self.axios.all([getUserAccount(), getUserPermissions()]).then(self.axios.spread(function (acct, perms) {
+                 console.log(acct);
+    
+             }));
+                const msg = this.$Message.loading('这是一个axios请求...', 0);
                 setTimeout(msg, 3000);
             },
              time () {
@@ -383,7 +424,10 @@ export default {
                 }
             }        
 
-        }
+        },
+    watch:{
+
+    }
 }
 </script>
 
